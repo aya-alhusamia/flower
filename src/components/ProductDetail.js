@@ -1,5 +1,5 @@
 import { DetailWrapper } from "../style";
-
+import DeleteButton from "../components/buttons/DeleteButton";
 const ProductDetail = (props) => {
   return (
     <DetailWrapper>
@@ -8,6 +8,10 @@ const ProductDetail = (props) => {
       <p>{props.product.description}</p>
       <p>{props.product.price}</p>
       <button onClick={() => props.setProduct(null)}>Back</button>
+      <DeleteButton
+        deleteProduct={() => props.deleteProduct}
+        productID={props.id}
+      ></DeleteButton>
     </DetailWrapper>
   );
 };

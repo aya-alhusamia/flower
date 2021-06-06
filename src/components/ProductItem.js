@@ -12,8 +12,8 @@ const ProductItem = (props) => {
       <p>{props.product.price}</p>
       <DeleteButton
         deleteProduct={props.deleteProduct}
-        productID={props.id}
-      ></DeleteButton>
+        productID={props.product.id}
+      />
     </Products>
   );
 };

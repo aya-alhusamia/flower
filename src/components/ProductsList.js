@@ -14,7 +14,7 @@ const ProductsList = (props) => {
     <ProductItem
       product={product}
       key={product.id}
-      id={product.id}
+      // id={product.id}
       setProduct={props.setProduct}
       deleteProduct={props.deleteProduct}
     />

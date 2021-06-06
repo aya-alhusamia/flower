@@ -29,11 +29,18 @@ function App() {
     console.log(productId);
     let filterdProduct = products.filter((product) => product.id !== productId);
     setProducts(filterdProduct);
+    setProduct(null);
   };
 
   const setView = () => {
     if (product) {
-      return <ProductDetail product={product} setProduct={setProduct} />;
+      return (
+        <ProductDetail
+          product={product}
+          setProduct={setProduct}
+          deleteProduct={deleteProduct}
+        />
+      );
     } else {
       return (
         <ProductsList

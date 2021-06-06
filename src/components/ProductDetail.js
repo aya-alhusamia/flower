@@ -9,8 +9,8 @@ const ProductDetail = (props) => {
       <p>{props.product.price}</p>
       <button onClick={() => props.setProduct(null)}>Back</button>
       <DeleteButton
-        deleteProduct={() => props.deleteProduct}
-        productID={props.id}
+        deleteProduct={props.deleteProduct}
+        productID={props.product.id}
       ></DeleteButton>
     </DetailWrapper>
   );

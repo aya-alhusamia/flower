@@ -8,7 +8,7 @@ import products from "../prducts";
 const ProductsList = () => {
   const [query, setQuery] = useState("");
   let filterdProduct = products.filter((product) =>
-    product.name.toLowerCase().includes(query)
+    product.name.toLowerCase().includes(query.toLocaleLowerCase())
   );
   let productList = filterdProduct.map((product) => (
     <ProductItem product={product} key={product.id} />

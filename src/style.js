@@ -43,6 +43,8 @@ export const Hame = styled.div`
 export const List = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
 `;
 export const Products = styled.div`

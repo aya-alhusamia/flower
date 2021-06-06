@@ -4,7 +4,7 @@ const ProductItem = (props) => {
     <Products>
       <img src={props.product.image} />
       <p>{props.product.name} </p>
-      <p>{props.product.price}$</p>
+      <p>{props.product.price}</p>
     </Products>
   );
 };

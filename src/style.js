@@ -86,3 +86,6 @@ export const DetailWrapper = styled.div`
     vertical-align: middle;
   }
 `;
+export const DeleteButtonStyled = styled.button`
+  color: red;
+`;

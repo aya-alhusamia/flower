@@ -1,6 +1,7 @@
 import { Products } from "../style";
-// import product from "../prducts";
+import DeleteButton from "../components/buttons/DeleteButton";
 const ProductItem = (props) => {
+  console.log(props, "props.....");
   return (
     <Products>
       <img
@@ -9,6 +10,10 @@ const ProductItem = (props) => {
       />
       <p>{props.product.name} </p>
       <p>{props.product.price}</p>
+      <DeleteButton
+        deleteProduct={props.deleteProduct}
+        productID={props.id}
+      ></DeleteButton>
     </Products>
   );
 };

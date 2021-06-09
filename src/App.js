@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./prducts";
+import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
 //Components
 import Home from "./components/Home";
 import ProductsList from "./components/ProductsList";
@@ -10,6 +12,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./darkMode/theme";
 import { GlobalStyles } from "./darkMode/global";
 import _products from "./prducts";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("color") || "light");
@@ -22,8 +25,8 @@ function App() {
       localStorage.setItem("color", "light");
     }
   };
+
   const [products, setProducts] = useState(_products);
-  const [product, setProduct] = useState(null);
 
   const deleteProduct = (productId) => {
     console.log(productId);
@@ -31,37 +34,51 @@ function App() {
     setProducts(filterdProduct);
     setProduct(null);
   };
-
-  const setView = () => {
-    if (product) {
-      return (
-        <ProductDetail
-          product={product}
-          setProduct={setProduct}
-          deleteProduct={deleteProduct}
-        />
-      );
-    } else {
-      return (
-        <ProductsList
-          setProduct={setProduct}
-          products={products}
-          deleteProduct={deleteProduct}
-        />
-      );
-    }
-  };
+  const [product, setProduct] = useState(null);
+  // const setView = () => {
+  //   if (product) {
+  //     return (
+  //       <ProductDetail
+  //         product={product}
+  //         setProduct={setProduct}
+  //         deleteProduct={deleteProduct}
+  //       />
+  //     );
+  //   } else {
+  //     return (
+  //       <ProductsList
+  //         setProduct={setProduct}
+  //         products={products}
+  //         deleteProduct={deleteProduct}
+  //       />
+  //     );
+  //   }
+  // };
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
+
       <button onClick={toggleTheme}>
         {theme === "light" ? "Dark" : "Light"} Mode
       </button>
-      <Home />
-      {/* <ProductsList setProduct={setProduct} />
-      <ProductDetail product={product} /> */}
-      {setView()}
+      <Navbar theme={theme} />
+      <Switch>
+        <Route path="/products/:productsSlug">
+          <ProductDetail products={products} deleteProduct={deleteProduct} />
+        </Route>
+        <Route path="/products">
+          <ProductsList
+            setProduct={setProduct}
+            products={products}
+            deleteProduct={deleteProduct}
+          />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+      {/* {setView()} */}
     </ThemeProvider>
   );
 }

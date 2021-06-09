@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
+import { Link, NavLink } from "react-router-dom";
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
@@ -36,8 +36,10 @@ export const Hame = styled.div`
     height: 20%;
   }
   img:hover {
+    height: 30%;
     border: 3px solid #d5c4a1;
-    border-radius: 200px;
+    border-radius: 50%;
+    content: url("https://cdn.shopify.com/s/files/1/0507/3754/5401/t/1/assets/FB68_LOL_preset_proflowers-tile-wide-mv-new.jpeg?v=c6f5ef3a8cea47e7940aeea8ac6b6e3b");
   }
 `;
 export const List = styled.div`
@@ -58,7 +60,7 @@ export const Products = styled.div`
   }
   img:hover {
     border: 3px solid #d5c4a1;
-    border-radius: 100px;
+    border-radius: 50%;
   }
   p:hover {
     background-color: #d5c4a1;
@@ -87,5 +89,22 @@ export const DetailWrapper = styled.div`
   }
 `;
 export const DeleteButtonStyled = styled.button`
-  color: red;
+  color: #414141;
+  &:hover {
+    border-radius: 100px;
+  }
+`;
+export const NavProduct = styled(NavLink)`
+  color: ${(props) => props.theme.body};
+  &.active {
+    background-color: gray;
+  }
+`;
+
+export const Logo = styled(Link)`
+  padding: 10px;
+  img {
+    width: 50%;
+    height: 10%;
+  }
 `;

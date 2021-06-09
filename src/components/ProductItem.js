@@ -1,13 +1,20 @@
+import { useState } from "react";
 import { Products } from "../style";
-import DeleteButton from "../components/buttons/DeleteButton";
+import DeleteButton from "./buttons/DeleteButton";
+import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   console.log(props, "props.....");
+  const [photo, setPhoto] = useState(props.product.image);
   return (
     <Products>
-      <img
-        onClick={() => props.setProduct(props.product)}
-        src={props.product.image}
-      />
+      <Link to={`/products/${props.product.slug}`}>
+        <img
+          src={photo}
+          onMouseOver={() => setPhoto(props.product.image_b)}
+          onMouseOut={() => setPhoto(props.product.image)}
+        />
+      </Link>
+
       <p>{props.product.name} </p>
       <p>{props.product.price}</p>
       <DeleteButton

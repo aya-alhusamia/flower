@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { NavProduct, Logo } from "../style";
 import Light from "../image/light.jfif";
 import Dark from "../image/dark.png";
-
 const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand">

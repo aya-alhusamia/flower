@@ -26,59 +26,39 @@ function App() {
     }
   };
 
-  const [products, setProducts] = useState(_products);
+  // const [products, setProducts] = useState(_products);
 
-  const deleteProduct = (productId) => {
-    console.log(productId);
-    let filterdProduct = products.filter((product) => product.id !== productId);
-    setProducts(filterdProduct);
-    setProduct(null);
-  };
-  const [product, setProduct] = useState(null);
-  // const setView = () => {
-  //   if (product) {
-  //     return (
-  //       <ProductDetail
-  //         product={product}
-  //         setProduct={setProduct}
-  //         deleteProduct={deleteProduct}
-  //       />
-  //     );
-  //   } else {
-  //     return (
-  //       <ProductsList
-  //         setProduct={setProduct}
-  //         products={products}
-  //         deleteProduct={deleteProduct}
-  //       />
-  //     );
-  //   }
+  // const deleteProduct = (productId) => {
+  //   console.log(productId);
+  //   let filterdProduct = products.filter((product) => product.id !== productId);
+  //   setProducts(filterdProduct);
+  //   setProduct(null);
   // };
+  const [product, setProduct] = useState(null);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Dark" : "Light"} Mode
-      </button>
       <Navbar theme={theme} />
       <Switch>
         <Route path="/products/:productsSlug">
-          <ProductDetail products={products} deleteProduct={deleteProduct} />
+          <ProductDetail />
+          {/* <ProductDetail products={products} deleteProduct={deleteProduct} /> */}
         </Route>
         <Route path="/products">
           <ProductsList
             setProduct={setProduct}
-            products={products}
-            deleteProduct={deleteProduct}
+            // products={products}
+            // deleteProduct={deleteProduct}
           />
         </Route>
         <Route exact path="/">
           <Home />
         </Route>
       </Switch>
-      {/* {setView()} */}
+      <button onClick={toggleTheme}>
+        {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
     </ThemeProvider>
   );
 }

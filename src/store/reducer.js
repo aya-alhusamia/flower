@@ -1,0 +1,21 @@
+import productsData from "../prducts";
+import { DELETE_PRODUCT } from "./actions";
+const initialState = {
+  products: productsData,
+};
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case DELETE_PRODUCT:
+      const productsToKeep = state.products.filter(
+        (product) => product.id !== action.payload.productId
+      );
+      return {
+        ...state,
+        products: productsToKeep,
+      };
+    default:
+      return initialState;
+  }
+};
+export default reducer;

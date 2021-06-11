@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
@@ -6,8 +8,9 @@ import { List } from "../style";
 //Data
 // import products from "../prducts";
 const ProductsList = (props) => {
+  const products = useSelector((state) => state.products);
   const [query, setQuery] = useState("");
-  let filterdProduct = props.products.filter((product) =>
+  let filterdProduct = products.filter((product) =>
     product.name.toLowerCase().includes(query.toLocaleLowerCase())
   );
   let productList = filterdProduct.map((product, index) => (

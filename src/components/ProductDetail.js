@@ -1,11 +1,15 @@
 import { DetailWrapper } from "../style";
 import { useParams, Redirect } from "react-router-dom";
 import DeleteButton from "../components/buttons/DeleteButton";
+import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
+// import { deleteProduct } from "../store/actions";
+
 const ProductDetail = (props) => {
+  // const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
   const productsSlug = useParams().productsSlug;
-  const product = props.products.find(
-    (product) => product.slug === productsSlug
-  );
+  const product = products.find((product) => product.slug === productsSlug);
   if (!product) return <Redirect to="/" />;
   return (
     <DetailWrapper>

@@ -9,7 +9,7 @@ const products = [
   {
     id: 1,
     name: "Red Roses",
-    slug: " Red Roses",
+    slug: "Red-Roses",
     price: 10,
     description: "this is a Red Roses",
     image: img1,
@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Fiesta Bouquet",
-    slug: " Fiesta Bouque",
+    slug: "Fiesta-Bouque",
     price: 9,
     description: "this is a Fiesta Bouquet",
     image: img2,
@@ -27,7 +27,7 @@ const products = [
   {
     id: 3,
     name: "Rosé All Day Bouquet",
-    slug: "Rosé All Day Bouquet",
+    slug: "Rosé-All-Day-Bouquet",
     price: 8,
     description: "this is a Rosé All Day Bouquet",
     image: img3,

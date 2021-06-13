@@ -114,3 +114,8 @@ export const Logo = styled(Link)`
     border-radius: 50%;
   }
 `;
+
+export const UpdateButtonStyled = styled.button`
+  color: white;
+  background-color: gray;
+`;

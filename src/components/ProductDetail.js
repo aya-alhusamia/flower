@@ -19,7 +19,7 @@ const ProductDetail = (props) => {
       <p>{product.price}</p>
       <button onClick={() => props.setProduct(null)}>Back</button>
       <DeleteButton
-        deleteProduct={props.deleteProduct}
+        // deleteProduct={props.deleteProduct}
         productID={product.id}
       ></DeleteButton>
     </DetailWrapper>

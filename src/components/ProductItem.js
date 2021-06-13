@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Products } from "../style";
+import { Products, UpdateButtonStyled } from "../style";
 import DeleteButton from "./buttons/DeleteButton";
 import { Link } from "react-router-dom";
 // import { useDispatch } from "react-redux";
@@ -17,13 +17,18 @@ const ProductItem = (props) => {
           onMouseOut={() => setPhoto(props.product.image)}
         />
       </Link>
+      <Link to={`/products/${props.product.slug}`}>
+        <p>{props.product.name} </p>
+      </Link>
 
-      <p>{props.product.name} </p>
       <p>{props.product.price}</p>
       <DeleteButton
-        deleteProduct={props.deleteProduct}
+        // deleteProduct={props.deleteProduct}
         productID={props.product.id}
       />
+      <UpdateButtonStyled>
+        <Link to={`/products/:${props.product.slug}/edit`}></Link>
+      </UpdateButtonStyled>
     </Products>
   );
 };

@@ -8,3 +8,14 @@ export const deleteProduct = (productId) => {
     },
   };
 };
+
+export const CREATE_PRODUCT = " CREATE_PRODUCT";
+
+export const createProduct = (newProduct) => {
+  return {
+    type: CREATE_PRODUCT,
+    payload: {
+      newProduct: newProduct,
+    },
+  };
+};

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
 import { List } from "../style";
+import FormProduct from "./FormProduct";
 //Data
 // import products from "../prducts";
 const ProductsList = (props) => {
@@ -19,7 +20,7 @@ const ProductsList = (props) => {
       key={product.id}
       // id={product.id}
       setProduct={props.setProduct}
-      deleteProduct={props.deleteProduct}
+      // deleteProduct={props.deleteProduct}
     />
   ));
 

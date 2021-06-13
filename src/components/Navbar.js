@@ -13,6 +13,7 @@ const Navbar = (props) => {
         <NavProduct to="/products" className="nav-item">
           Products
         </NavProduct>
+        <Link to="/products/forms">FormProduct</Link>
       </div>
     </nav>
   );

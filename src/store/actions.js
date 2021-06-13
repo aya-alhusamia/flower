@@ -19,3 +19,14 @@ export const createProduct = (newProduct) => {
     },
   };
 };
+
+export const UPDATE_PRODUCT = " UPDATE_PRODUCT";
+
+export const updateProduct = (updatedProduct) => {
+  return {
+    type: UPDATE_PRODUCT,
+    payload: {
+      updatedProduct: updatedProduct,
+    },
+  };
+};

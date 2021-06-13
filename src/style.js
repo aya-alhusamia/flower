@@ -117,5 +117,4 @@ export const Logo = styled(Link)`
 
 export const UpdateButtonStyled = styled.button`
   color: white;
-  background-color: gray;
 `;

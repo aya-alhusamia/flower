@@ -26,9 +26,6 @@ const ProductItem = (props) => {
         // deleteProduct={props.deleteProduct}
         productID={props.product.id}
       />
-      <UpdateButtonStyled>
-        <Link to={`/products/:${props.product.slug}/edit`}></Link>
-      </UpdateButtonStyled>
     </Products>
   );
 };

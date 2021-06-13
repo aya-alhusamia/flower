@@ -42,8 +42,7 @@ function App() {
       <GlobalStyles />
       <Navbar theme={theme} />
       <Switch>
-        {/* // path="/products/:productSlug/edit." */}
-        <Route path="/products/forms">
+        <Route path={["/products/forms", "/products/:productSlug/edit"]}>
           <FormProduct />
         </Route>
         <Route path="/products/:productsSlug">

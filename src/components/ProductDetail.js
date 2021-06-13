@@ -2,6 +2,7 @@ import { DetailWrapper } from "../style";
 import { useParams, Redirect } from "react-router-dom";
 import DeleteButton from "../components/buttons/DeleteButton";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 // import { deleteProduct } from "../store/actions";
 
@@ -22,6 +23,9 @@ const ProductDetail = (props) => {
         // deleteProduct={props.deleteProduct}
         productID={product.id}
       ></DeleteButton>
+      <Link to={`/products/${product.slug}/edit`}>
+        <button>edit</button>
+      </Link>
     </DetailWrapper>
   );
 };

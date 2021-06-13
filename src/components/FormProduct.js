@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { createProduct } from "../store/actions";
+import { createProduct, updateProduct } from "../store/actions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
 const FormProduct = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    image: "",
-    price: 0,
-  });
+  const productSlug = useParams().productSlug;
+  const products = useSelector((state) => state.products);
+  const updatedProduct = products.find((e) => e.slug === productSlug);
+
+  const [product, setProduct] = useState(
+    updatedProduct ?? {
+      name: "",
+      description: "",
+      image: "",
+      price: 0,
+    }
+  );
   //   const productsSlug = useParams().productsSlug;
   //   if (product.slug) {
   //     product.find((product) => product.slug === productsSlug);
@@ -33,8 +41,13 @@ const FormProduct = () => {
   //   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createProduct(product));
-    history.push("/products");
+    if (updatedProduct) {
+      dispatch(updateProduct(product));
+    } else {
+      dispatch(createProduct(product));
+      history.push("/products");
+    }
+
     // resetForm();
   };
   return (
@@ -79,9 +92,7 @@ const FormProduct = () => {
           placeholder="Enter a price"
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Click here to submit form
-      </Button>
+      <Button type="submit">{updatedProduct ? "Update" : "Submit"}</Button>
     </Form>
   );
 };

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Home from "./components/Home";
 import ProductsList from "./components/ProductsList";
 import ProductDetail from "./components/ProductDetail";
-import FormProduct from "./components/FormProduct";
+import AddProduct from "./components/AddProduct";
 //Style
 import "./App.css";
 import { ThemeProvider } from "styled-components";
@@ -42,10 +42,13 @@ function App() {
       <GlobalStyles />
       <Navbar theme={theme} />
       <Switch>
-        <Route path={["/products/forms", "/products/:productSlug/edit"]}>
+        {/* <Route path={["/products/forms", "/products/:productId/edit"]}>
           <FormProduct />
+        </Route> */}
+        <Route path={["/products/new", "/products/:productSlug/edit"]}>
+          <AddProduct />
         </Route>
-        <Route path="/products/:productsSlug">
+        <Route path="/products/:productsId">
           <ProductDetail />
           {/* <ProductDetail products={products} deleteProduct={deleteProduct} /> */}
         </Route>

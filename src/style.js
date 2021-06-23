@@ -103,18 +103,52 @@ export const NavProduct = styled(NavLink)`
     background-color: gray;
   }
 `;
-
 export const Logo = styled(Link)`
-  padding: 5px;
-  margin-top: -2%;
-
+  padding: 0.75em;
   img {
-    width: 50%;
-    height: 10%;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
   }
 `;
 
 export const UpdateButtonStyled = styled.button`
   color: white;
+`;
+export const AddProductDiv = styled.div`
+  border-radius: 15px;
+  padding: 30px;
+  margin: auto;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  input {
+    height: 40px;
+    width: 300px;
+    border-radius: 4px;
+    border: 2px solid white;
+  }
+`;
+
+export const Button = styled.button`
+  height: 40px;
+  width: 150px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+`;
+export const ThemeButton = styled.button`
+  position: absolute;
+  right: 50px;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+`;
+export const NavItem = styled(NavLink)`
+  padding: 0.25em 1em;
+  font-size: 24px;
 `;

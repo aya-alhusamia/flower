@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // Components
 import ProductItem from "./ProductItem";
 import SearchBar from "./SearchBar";
+//style
 import { List } from "../style";
-import FormProduct from "./FormProduct";
-//Data
-// import products from "../prducts";
 const ProductsList = (props) => {
-  const products = useSelector((state) => state.products);
   const [query, setQuery] = useState("");
+  const products = useSelector((state) => state.products);
   let filterdProduct = products.filter((product) =>
     product.name.toLowerCase().includes(query.toLocaleLowerCase())
   );
@@ -18,9 +16,7 @@ const ProductsList = (props) => {
     <ProductItem
       product={product}
       key={product.id}
-      // id={product.id}
       setProduct={props.setProduct}
-      // deleteProduct={props.deleteProduct}
     />
   ));
 

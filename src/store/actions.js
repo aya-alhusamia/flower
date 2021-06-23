@@ -3,7 +3,7 @@ import axios from "axios";
 export const DELETE_PRODUCT = " DELETE_PRODUCT";
 export const deleteProduct = (productId) => async (dispatch) => {
   try {
-    await axios.delete(`http://127.0.0.1:8000/products${productId}`);
+    await axios.delete(`http://127.0.0.1:8000/products/${productId}`);
     dispatch({
       type: DELETE_PRODUCT,
       // payload: res.data,
@@ -20,8 +20,8 @@ export const createProduct = (newProduct) => async (dispatch) => {
   try {
     const formData = new FormData();
     for (const key in newProduct) formData.append(key, newProduct[key]);
-    const res = await axios.post("http://127.0.0.1:8000/products$", formData);
-    this.cookies.push(res.data);
+    const res = await axios.post("http://127.0.0.1:8000/products/", formData);
+    this.products.push(res.data);
 
     dispatch({
       type: CREATE_PRODUCT,

@@ -19,10 +19,10 @@ const Navbar = (props) => {
 
         <NavItem
           className="nav-item"
-          to="/products/new"
+          to="/shops"
           style={{ padding: "0.25em 1em" }}
         >
-          Add Product
+          Shops
         </NavItem>
       </div>
     </nav>

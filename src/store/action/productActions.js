@@ -1,6 +1,11 @@
 import axios from "axios";
+import {
+  CREATE_PRODUCT,
+  DELETE_PRODUCT,
+  FETCH_PRODUCTS,
+  UPDATE_PRODUCT,
+} from "./types";
 
-export const DELETE_PRODUCT = " DELETE_PRODUCT";
 export const deleteProduct = (productId) => async (dispatch) => {
   try {
     await axios.delete(`http://127.0.0.1:8000/products/${productId}`);
@@ -14,13 +19,14 @@ export const deleteProduct = (productId) => async (dispatch) => {
   }
 };
 
-export const CREATE_PRODUCT = " CREATE_PRODUCT";
-
-export const createProduct = (newProduct) => async (dispatch) => {
+export const createProduct = (newProduct, shopId) => async (dispatch) => {
   try {
     const formData = new FormData();
     for (const key in newProduct) formData.append(key, newProduct[key]);
-    const res = await axios.post("http://127.0.0.1:8000/products/", formData);
+    const res = await axios.post(
+      `http://127.0.0.1:8000/shops/${shopId}/products/`,
+      formData
+    );
     this.products.push(res.data);
 
     dispatch({
@@ -32,8 +38,6 @@ export const createProduct = (newProduct) => async (dispatch) => {
     console.log(error.message);
   }
 };
-
-export const UPDATE_PRODUCT = " UPDATE_PRODUCT";
 
 export const updateProduct = (updatedProduct) => async (dispatch) => {
   try {
@@ -53,7 +57,6 @@ export const updateProduct = (updatedProduct) => async (dispatch) => {
   }
 };
 
-export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const fetchProducts = () => async (dispatch) => {
   try {
     const res = await axios.get("http://127.0.0.1:8000/products");

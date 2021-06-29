@@ -137,7 +137,7 @@ export const Button = styled.button`
   width: 150px;
   border-radius: 4px;
   border: none;
-  color: white;
+  color: #414141;
 `;
 export const ThemeButton = styled.button`
   position: absolute;

@@ -14,6 +14,8 @@ import { lightTheme, darkTheme } from "./darkMode/theme";
 import { GlobalStyles } from "./darkMode/global";
 import _products from "./prducts";
 import Navbar from "./components/Navbar";
+import ShopList from "./components/shops/ShopList";
+import ShopDetail from "./components/shops/ShopDetail";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("color") || "light");
@@ -45,11 +47,18 @@ function App() {
         {/* <Route path={["/products/forms", "/products/:productId/edit"]}>
           <FormProduct />
         </Route> */}
-        <Route path={["/products/new", "/products/:productSlug/edit"]}>
+
+        <Route
+          path={["/shops/:shopId/products/new", "/products/:productSlug/edit"]}
+        >
           <AddProduct />
         </Route>
         <Route path="/products/:productsId">
           <ProductDetail />
+          {/* <ProductDetail products={products} deleteProduct={deleteProduct} /> */}
+        </Route>
+        <Route path="/shops/:shopsId">
+          <ShopDetail />
           {/* <ProductDetail products={products} deleteProduct={deleteProduct} /> */}
         </Route>
         <Route path="/products">
@@ -58,6 +67,9 @@ function App() {
             // products={products}
             // deleteProduct={deleteProduct}
           />
+        </Route>
+        <Route path="/shops">
+          <ShopList />
         </Route>
         <Route exact path="/">
           <Home />

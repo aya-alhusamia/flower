@@ -4,14 +4,15 @@ import DeleteButton from "../components/buttons/DeleteButton";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "../store/actions";
+import { deleteProduct } from "../store/action/productActions";
 
 const ProductDetail = (props) => {
   const productsSlug = useParams().productsSlug;
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
   const product = products.find((product) => product.slug === productsSlug);
+  console.log(productsSlug);
   if (!product) return <Redirect to="/" />;
   return (
     <DetailWrapper>
@@ -19,7 +20,7 @@ const ProductDetail = (props) => {
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price}</p>
-      <button onClick={() => props.setProduct(null)}>Back</button>
+      <Link to="/products">Back</Link>
       <DeleteButton
         deleteProduct={() => dispatch(deleteProduct(product.id))}
       ></DeleteButton>

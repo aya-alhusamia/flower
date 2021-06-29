@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 import { List } from "../style";
 const ProductsList = (props) => {
   const [query, setQuery] = useState("");
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.products);
   let filterdProduct = products.filter((product) =>
     product.name.toLowerCase().includes(query.toLocaleLowerCase())
   );

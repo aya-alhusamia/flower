@@ -3,7 +3,7 @@ import { Products, UpdateButtonStyled } from "../style";
 import DeleteButton from "./buttons/DeleteButton";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "../store/actions";
+import { deleteProduct } from "../store/action/productActions";
 const ProductItem = (props) => {
   const dispatch = useDispatch();
   console.log(props, "props.....");

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { AddProductDiv, Button } from "../style";
-import { createProduct, updateProduct } from "../store/actions";
+import { createProduct, updateProduct } from "../store/action/productActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router";
@@ -9,7 +9,8 @@ import { useSelector } from "react-redux";
 
 function AddProduct() {
   const productSlug = useParams().productSlug;
-  const products = useSelector((state) => state.products);
+  const shopId = useParams().shopId;
+  const products = useSelector((state) => state.products.products);
 
   const updatedProduct = products.find((b) => b.slug === productSlug);
 
@@ -21,6 +22,7 @@ function AddProduct() {
       image: "",
     }
   );
+  const [img, setImg] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -31,11 +33,22 @@ function AddProduct() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (updatedProduct) dispatch(updateProduct(product));
-    else dispatch(createProduct(product));
+    else dispatch(createProduct(product, shopId));
     history.push("/products");
   };
-  const handleImage = (event) =>
+  // let render= new FileReader()
+  // render.addEventListener("load",(e)=>{
+  //   setProduct({
+  //     id=e.currentTarget.result,
+
+  //   })
+  //   console.log(e.currentTarget.result);
+  // })
+  // render.readAsDataURL(event.target.files[0])
+  const handleImage = (event) => {
+    setImg(URL.createObjectURL(event.target.files[0]));
     setProduct({ ...product, image: event.target.files[0] });
+  };
   return (
     <form onSubmit={handleSubmit}>
       <AddProductDiv>
@@ -61,6 +74,7 @@ function AddProduct() {
           placeholder="enter flower description"
         />
         <input onChange={handleImage} type="file" name="image" />
+        <img src={img} />
 
         <Button type="submit">{updatedProduct ? "Update" : "Submit"}</Button>
       </AddProductDiv>

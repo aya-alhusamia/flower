@@ -7,3 +7,6 @@ export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 // Shops Actions
 export const FETCH_SHOPS = "FETCH_SHOPS";
 export const CREATE_SHOP = "CREATE_SHOP";
+
+// User Action
+export const CREATE_USER = "CREATE_USER";

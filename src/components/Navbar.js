@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavItem, Logo } from "../style";
+import { NavItem, Logo, SignupButton } from "../style";
 import Light from "../image/light.jfif";
 import Dark from "../image/dark.png";
 const Navbar = (props) => {
@@ -23,6 +23,13 @@ const Navbar = (props) => {
           style={{ padding: "0.25em 1em" }}
         >
           Shops
+        </NavItem>
+        <NavItem
+          className="nav-item"
+          to="/signup"
+          style={{ padding: "0.25em 1em" }}
+        >
+          <SignupButton> SingUp</SignupButton>
         </NavItem>
       </div>
     </nav>

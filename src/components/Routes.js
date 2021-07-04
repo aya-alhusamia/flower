@@ -6,6 +6,7 @@ import ProductsList from "./ProductsList";
 import ProductDetail from "./ProductDetail";
 import AddProduct from "./AddProduct";
 import ShopList from "./shops/ShopList";
+import SingUp from "./Signup";
 import ShopDetail from "./shops/ShopDetail";
 import { useSelector } from "react-redux";
 const Routes = () => {
@@ -28,6 +29,9 @@ const Routes = () => {
       </Route>
       <Route path="/shops">
         <ShopList />
+      </Route>
+      <Route path="/signup">
+        <SingUp />
       </Route>
       <Route exact path="/">
         <Home />

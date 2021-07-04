@@ -139,6 +139,13 @@ export const Button = styled.button`
   border: none;
   color: #414141;
 `;
+export const SignupButton = styled(Link)`
+  height: 40px;
+  width: 150px;
+  border-radius: 4px;
+  border: none;
+  color: #414141;
+`;
 export const ThemeButton = styled.button`
   position: absolute;
   right: 50px;

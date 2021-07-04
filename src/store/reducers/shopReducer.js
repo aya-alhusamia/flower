@@ -1,6 +1,7 @@
 import * as actionType from "../action/types";
 const initialState = {
   shops: [],
+  loading: true,
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,6 +9,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shops: action.payload,
+        loading: false,
       };
     case actionType.CREATE_SHOP:
       return {

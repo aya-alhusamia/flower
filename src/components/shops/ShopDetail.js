@@ -12,14 +12,16 @@ const ShopDetail = (props) => {
   const shops = useSelector((state) => state.shops.shops);
   //   const dispatch = useDispatch();
 
-  const shop = shops.find((shop) => shop.id === shopsId);
+  const shop = shops.find((shop) => shop.id === +shopsId);
+  console.log(shopsId);
   if (!shop) return <Redirect to="/" />;
   return (
     <div>
       <DetailWrapper>
         <h1>{shop.name}</h1>
         <img src={shop.image} alt={shop.name} />
-        <Link to={`/shops/:${shop.id}/products/new`}>
+        {console.log(shop.image)}
+        <Link to={`/shops/${shop.id}/products/new`}>
           <button>add Product</button>
         </Link>
       </DetailWrapper>

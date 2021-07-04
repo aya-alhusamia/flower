@@ -12,7 +12,7 @@ const ProductItem = (props) => {
       <Link to={`/products/${props.product.slug}`}>
         <img src={props.product.image} />
       </Link>
-      <Link to={`/products/${props.product.id}`}>
+      <Link to={`/products/${props.product.slug}`}>
         <p>{props.product.name} </p>
       </Link>
 

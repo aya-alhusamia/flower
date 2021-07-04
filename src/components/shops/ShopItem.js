@@ -8,9 +8,8 @@ const ShopItem = (props) => {
   //   console.log(props, "props.....");
   return (
     <Products>
-      <Link to={`/shops/${props.shop.slug}`}>
-        <img src={props.shop.image} />
-      </Link>
+      <img src={props.shop.image} />
+
       <Link to={`/shops/${props.shop.id}`}>
         <p>{props.shop.name} </p>
       </Link>

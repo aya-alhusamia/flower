@@ -6,13 +6,15 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteProduct } from "../store/action/productActions";
 
-const ProductDetail = (props) => {
-  const productsSlug = useParams().productsSlug;
+const ProductDetail = () => {
+  const productSlug = useParams().productSlug;
+  console.log(useParams().productSlug);
   const products = useSelector((state) => state.products.products);
+
   const dispatch = useDispatch();
 
-  const product = products.find((product) => product.slug === productsSlug);
-  console.log(productsSlug);
+  const product = products.find((product) => product.slug === productSlug);
+  console.log(productSlug);
   if (!product) return <Redirect to="/" />;
   return (
     <DetailWrapper>
